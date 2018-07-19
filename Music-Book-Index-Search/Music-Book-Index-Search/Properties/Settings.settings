@@ -8,5 +8,8 @@
     <Setting Name="MusicBooks" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="SumatraPdfFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SumatraPDF.exe</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -82,6 +82,10 @@ namespace Music_Book_Index_Search
 
         public IEnumerable<Tuple<string, string, string, int, int?>> SearchMusicBooks(string name)
         {
+            if (String.IsNullOrWhiteSpace(name))
+            {
+                return _index;
+            }
             name = name.ToLower();
             foreach(var element in _index)
             {
@@ -98,8 +102,28 @@ namespace Music_Book_Index_Search
 public struct SongItem
 {
     public Tuple<string, string, string, int, int?> Data { get; set; }
+    public string Title
+    {
+        get
+        {
+            return Data.Item1;
+        }
+    }
+    public string Details
+    {
+        get
+        {
+            string pages = "";
+            if (Data.Item5.HasValue)
+            {
+                pages = "-" + Data.Item5;
+            }
+            return Data.Item2 + " p." + Data.Item4 + pages + "";
+        }
+    }
+
     public override string ToString()
     {
-        return Data.Item1 + ", " + Data.Item2;
+        return Title + "    " + Details;
     }
 }

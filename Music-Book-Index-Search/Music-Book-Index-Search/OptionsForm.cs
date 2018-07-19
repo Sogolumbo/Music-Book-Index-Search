@@ -113,6 +113,7 @@ namespace Music_Book_Index_Search
                 {
                     control.Width = itemWidth;
                 }
+
                 _previousWidth = Width;
             }
         }

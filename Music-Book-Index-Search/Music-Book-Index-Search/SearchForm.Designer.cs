@@ -39,11 +39,13 @@
             this.resultsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultsListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.resultsListBox.FormattingEnabled = true;
             this.resultsListBox.Location = new System.Drawing.Point(12, 38);
             this.resultsListBox.Name = "resultsListBox";
             this.resultsListBox.Size = new System.Drawing.Size(457, 212);
             this.resultsListBox.TabIndex = 0;
+            this.resultsListBox.DoubleClick += new System.EventHandler(this.resultsListBox_DoubleClick);
             // 
             // searchTextBox
             // 
@@ -88,6 +90,7 @@
             this.Controls.Add(this.resultsListBox);
             this.Name = "SearchForm";
             this.Text = "Music Book Search";
+            this.Load += new System.EventHandler(this.SearchForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

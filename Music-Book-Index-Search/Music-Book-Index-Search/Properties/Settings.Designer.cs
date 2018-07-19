@@ -46,5 +46,17 @@ namespace Music_Book_Index_Search.Properties {
                 this["MusicBooks"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SumatraPDF.exe")]
+        public string SumatraPdfFilePath {
+            get {
+                return ((string)(this["SumatraPdfFilePath"]));
+            }
+            set {
+                this["SumatraPdfFilePath"] = value;
+            }
+        }
     }
 }
