@@ -1,7 +1,9 @@
 # Music-Book-Index-Search
 ### A small program to search for songs in music book pdfs.
+Imagine you 're at a jam session: Someone proposes a song (e.g. "Someone For My Lady"). Normally you would have to go through the table of contents of the first real book but wouldn't find it until you opened the second real book. Then your next challenge would be finding the right page as the pdf page numbers don't match the table of contents.
 
-The program provides a simple search algorithm to find the songs you are searching for. You can go straight to the pdf page with just a double click.
+With this simple tool you just start typing the name of your song and imediately see the right entry. Then you just double click on the song and imediately the pdf viewer shows you the right page of the real book.
+
 ## How it works
 The system is based on .csv index files. There are many index files for The Real Book and other common jazz music books in [book-indices](https://github.com/aspiers/book-indices).
 The pdf viewer which is used to display the music books is [SumatraPDF](https://www.sumatrapdfreader.org) which is really light weight.
