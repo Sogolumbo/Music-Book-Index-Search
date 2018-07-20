@@ -10,10 +10,10 @@ The system is based on .csv index files. There are many index files for The Real
 The pdf viewer which is used to display the music books is [SumatraPDF](https://www.sumatrapdfreader.org) which is really light weight.
 
 ## Platform specifications
-The program runs on Windows 32bit and 64bit systems and requires the [.NET 4.6.1 Runtime Environment](https://www.microsoft.com/net/download/thank-you/net461).
+The program runs on Windows 32bit and 64bit systems and requires the [.NET Framework Runtime 4.6.1 or newer](https://www.microsoft.com/net/download/windows).
 
 ## Setup
-0. Make sure that you have the [.NET 4.6.1 Runtime Environment](https://www.microsoft.com/net/download/thank-you/net461) installed (most likely it's already there).
+0. Make sure that you have the [.NET Framework Runtime 4.6.1 or newer](https://www.microsoft.com/net/download/windows) installed (most likely it's already there).
 1. [Get the binariy files](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/master) (*.exe and *.dll) for Music-Book-Index-Search.
 2. Get the .csv files with the indices for your music books (download from [book-indices](https://github.com/aspiers/book-indices) or create your own).
 3. Download [SumatraPDF](https://www.sumatrapdfreader.org).
