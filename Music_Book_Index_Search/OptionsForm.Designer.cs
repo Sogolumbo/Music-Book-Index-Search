@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsForm));
             this.musicBookflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.chooseCsvButton = new System.Windows.Forms.Button();
             this.openCsvFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -37,6 +38,8 @@
             this.choosePdfButton = new System.Windows.Forms.Button();
             this.addMusicBookButton = new System.Windows.Forms.Button();
             this.addMusicBookGroupBox = new System.Windows.Forms.GroupBox();
+            this.issuesLabel = new System.Windows.Forms.Label();
+            this.issuesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.addMusicBookGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,14 +51,14 @@
             this.musicBookflowLayoutPanel.AutoScroll = true;
             this.musicBookflowLayoutPanel.Location = new System.Drawing.Point(12, 12);
             this.musicBookflowLayoutPanel.Name = "musicBookflowLayoutPanel";
-            this.musicBookflowLayoutPanel.Size = new System.Drawing.Size(580, 462);
+            this.musicBookflowLayoutPanel.Size = new System.Drawing.Size(469, 335);
             this.musicBookflowLayoutPanel.TabIndex = 0;
             this.musicBookflowLayoutPanel.SizeChanged += new System.EventHandler(this.musicBookflowLayoutPanel_SizeChanged);
             // 
             // chooseCsvButton
             // 
             this.chooseCsvButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chooseCsvButton.Location = new System.Drawing.Point(422, 17);
+            this.chooseCsvButton.Location = new System.Drawing.Point(311, 17);
             this.chooseCsvButton.Name = "chooseCsvButton";
             this.chooseCsvButton.Size = new System.Drawing.Size(90, 23);
             this.chooseCsvButton.TabIndex = 3;
@@ -83,7 +86,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.csvFilepathTextBox.Location = new System.Drawing.Point(6, 20);
             this.csvFilepathTextBox.Name = "csvFilepathTextBox";
-            this.csvFilepathTextBox.Size = new System.Drawing.Size(410, 20);
+            this.csvFilepathTextBox.Size = new System.Drawing.Size(299, 20);
             this.csvFilepathTextBox.TabIndex = 4;
             // 
             // pdfFilepathTextBox
@@ -92,13 +95,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pdfFilepathTextBox.Location = new System.Drawing.Point(6, 46);
             this.pdfFilepathTextBox.Name = "pdfFilepathTextBox";
-            this.pdfFilepathTextBox.Size = new System.Drawing.Size(410, 20);
+            this.pdfFilepathTextBox.Size = new System.Drawing.Size(299, 20);
             this.pdfFilepathTextBox.TabIndex = 5;
             // 
             // choosePdfButton
             // 
             this.choosePdfButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.choosePdfButton.Location = new System.Drawing.Point(422, 43);
+            this.choosePdfButton.Location = new System.Drawing.Point(311, 43);
             this.choosePdfButton.Name = "choosePdfButton";
             this.choosePdfButton.Size = new System.Drawing.Size(90, 23);
             this.choosePdfButton.TabIndex = 3;
@@ -110,7 +113,7 @@
             // 
             this.addMusicBookButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addMusicBookButton.Enabled = false;
-            this.addMusicBookButton.Location = new System.Drawing.Point(518, 17);
+            this.addMusicBookButton.Location = new System.Drawing.Point(407, 17);
             this.addMusicBookButton.Name = "addMusicBookButton";
             this.addMusicBookButton.Size = new System.Drawing.Size(56, 49);
             this.addMusicBookButton.TabIndex = 6;
@@ -127,26 +130,55 @@
             this.addMusicBookGroupBox.Controls.Add(this.chooseCsvButton);
             this.addMusicBookGroupBox.Controls.Add(this.pdfFilepathTextBox);
             this.addMusicBookGroupBox.Controls.Add(this.choosePdfButton);
-            this.addMusicBookGroupBox.Location = new System.Drawing.Point(12, 480);
+            this.addMusicBookGroupBox.Location = new System.Drawing.Point(12, 353);
             this.addMusicBookGroupBox.Name = "addMusicBookGroupBox";
-            this.addMusicBookGroupBox.Size = new System.Drawing.Size(580, 72);
+            this.addMusicBookGroupBox.Size = new System.Drawing.Size(469, 72);
             this.addMusicBookGroupBox.TabIndex = 7;
             this.addMusicBookGroupBox.TabStop = false;
             this.addMusicBookGroupBox.Text = "Add Music Book";
+            // 
+            // issuesLabel
+            // 
+            this.issuesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.issuesLabel.AutoSize = true;
+            this.issuesLabel.Location = new System.Drawing.Point(9, 431);
+            this.issuesLabel.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.issuesLabel.Name = "issuesLabel";
+            this.issuesLabel.Size = new System.Drawing.Size(267, 13);
+            this.issuesLabel.TabIndex = 8;
+            this.issuesLabel.Text = "Do you have any thoughts or issues with this program? ";
+            // 
+            // issuesLinkLabel
+            // 
+            this.issuesLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.issuesLinkLabel.AutoSize = true;
+            this.issuesLinkLabel.Location = new System.Drawing.Point(276, 431);
+            this.issuesLinkLabel.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.issuesLinkLabel.Name = "issuesLinkLabel";
+            this.issuesLinkLabel.Size = new System.Drawing.Size(113, 13);
+            this.issuesLinkLabel.TabIndex = 9;
+            this.issuesLinkLabel.TabStop = true;
+            this.issuesLinkLabel.Text = "Go to the project page";
+            this.issuesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.issuesLinkLabel_LinkClicked);
             // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(604, 564);
+            this.ClientSize = new System.Drawing.Size(493, 453);
+            this.Controls.Add(this.issuesLinkLabel);
+            this.Controls.Add(this.issuesLabel);
             this.Controls.Add(this.addMusicBookGroupBox);
             this.Controls.Add(this.musicBookflowLayoutPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(410, 241);
             this.Name = "OptionsForm";
             this.Text = "Options - Music Book Search";
             this.addMusicBookGroupBox.ResumeLayout(false);
             this.addMusicBookGroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -161,5 +193,7 @@
         private System.Windows.Forms.Button choosePdfButton;
         private System.Windows.Forms.Button addMusicBookButton;
         private System.Windows.Forms.GroupBox addMusicBookGroupBox;
+        private System.Windows.Forms.Label issuesLabel;
+        private System.Windows.Forms.LinkLabel issuesLinkLabel;
     }
 }
