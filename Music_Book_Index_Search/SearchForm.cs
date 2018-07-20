@@ -77,6 +77,7 @@ namespace Music_Book_Index_Search
         {
             // Get the ListBox and the item.
             ListBox listBox = sender as ListBox;
+            if (e.Index < 0) return;
             SongItem item = (SongItem)listBox.Items[e.Index];
 
             // Draw the background.
