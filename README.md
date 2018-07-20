@@ -5,10 +5,6 @@ Imagine you 're at a jam session: Someone proposes a song (e.g. "Someone For My 
 
 With this simple tool you just start typing the name of your song and imediately see the right entry. Then you just double click on the song and imediately the pdf viewer shows you the right page of the real book.
 
-## How it works
-The system is based on .csv index files. There are many index files for The Real Book and other common jazz music books in [book-indices](https://github.com/aspiers/book-indices).
-The pdf viewer which is used to display the music books is [SumatraPDF](https://www.sumatrapdfreader.org) which is really light weight.
-
 ## Platform specifications
 The program runs on Windows 32bit and 64bit systems.
 ### Requirements
@@ -28,8 +24,8 @@ The program runs on Windows 32bit and 64bit systems.
 
 Finished - you can now search your music sheet library.
 
-## Screenshots
 
+## Screenshots
 Desktop view:
 
 ![music book search desktop view](https://user-images.githubusercontent.com/33571916/42966148-84e1d674-8b9c-11e8-958c-18055ea2d858.PNG)
@@ -37,4 +33,3 @@ Desktop view:
 Tablet view with bigger font and bigger spacing between search results:
 
 ![music book search tablet view](https://user-images.githubusercontent.com/33571916/42966429-69b5ca12-8b9d-11e8-819d-f73a3fec3350.PNG)
-
