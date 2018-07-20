@@ -14,9 +14,8 @@ The program runs on Windows 32bit and 64bit systems.
 ### Requirements
 * [.NET Framework Runtime 4.6.1 or newer](https://www.microsoft.com/net/download/windows).
 * [SumatraPDF](https://www.sumatrapdfreader.org)
-* Indeces of your pdf files in CSV-Format
-	The values are read in the format 
-	<Song title>, <first page>, <last page(optional)>
+* Indeces of your pdf files in the CSV-Format like this:
+	`<Song title>, <first page>, <last page (optional)>`	e.g.: `"Raven, The", 89, 90` [(more details)](https://github.com/aspiers/book-indices/blob/master/README.md#file-format)
 
 
 ## Setup
