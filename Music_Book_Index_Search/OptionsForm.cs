@@ -34,7 +34,6 @@ namespace Music_Book_Index_Search
 
         private bool _csvChosen;
         private bool _pdfChosen;
-        int _previousWidth;
 
 
         private void _musicBookSearch_MusicBooksChanged(object sender, EventArgs e)
@@ -70,7 +69,7 @@ namespace Music_Book_Index_Search
 
         private int MusicBookItemWidth()
         {
-            return musicBookflowLayoutPanel.Width - 15;
+            return musicBookflowLayoutPanel.ClientRectangle.Width - 8;
         }
 
         private void Item_RemoveItem(object sender, RemoveItemEventArgs e)
@@ -117,15 +116,10 @@ namespace Music_Book_Index_Search
 
         private void musicBookflowLayoutPanel_SizeChanged(object sender, EventArgs e)
         {
-            if (Width != _previousWidth)
+            int itemWidth = MusicBookItemWidth();
+            foreach (Control control in musicBookflowLayoutPanel.Controls)
             {
-                int itemWidth = MusicBookItemWidth();
-                foreach (Control control in musicBookflowLayoutPanel.Controls)
-                {
-                    control.Width = itemWidth;
-                }
-
-                _previousWidth = Width;
+                control.Width = itemWidth;
             }
         }
 

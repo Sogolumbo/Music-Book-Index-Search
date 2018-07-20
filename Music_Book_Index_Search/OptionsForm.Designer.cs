@@ -174,7 +174,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(410, 241);
             this.Name = "OptionsForm";
-            this.Text = "Options - Music Book Search";
+            this.Text = "Options - Music Book Search by Sogolumbo";
             this.addMusicBookGroupBox.ResumeLayout(false);
             this.addMusicBookGroupBox.PerformLayout();
             this.ResumeLayout(false);
