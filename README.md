@@ -10,7 +10,14 @@ The system is based on .csv index files. There are many index files for The Real
 The pdf viewer which is used to display the music books is [SumatraPDF](https://www.sumatrapdfreader.org) which is really light weight.
 
 ## Platform specifications
-The program runs on Windows 32bit and 64bit systems and requires the [.NET Framework Runtime 4.6.1 or newer](https://www.microsoft.com/net/download/windows).
+The program runs on Windows 32bit and 64bit systems.
+### Requirements
+* [.NET Framework Runtime 4.6.1 or newer](https://www.microsoft.com/net/download/windows).
+* [SumatraPDF](https://www.sumatrapdfreader.org)
+* Indeces of your pdf files in CSV-Format
+	The values are read in the format 
+	<Song title>, <first page>, <last page(optional)>
+
 
 ## Setup
 0. Make sure that you have the [.NET Framework Runtime 4.6.1 or newer](https://www.microsoft.com/net/download/windows) installed (most likely it's already there).
