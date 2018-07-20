@@ -15,6 +15,7 @@ namespace Music_Book_Index_Search
         public OptionsForm()
         {
             InitializeComponent();
+            searchOnKeyPressCheckBox.Checked = Properties.Settings.Default.SearchAfterEveryKeyPress;
         }
 
         public MusicBookSearch MusicBookSearch
@@ -126,6 +127,12 @@ namespace Music_Book_Index_Search
         private void issuesLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Sogolumbo/Music-Book-Index-Search");
+        }
+
+        private void searchOnKeyPressCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SearchAfterEveryKeyPress = searchOnKeyPressCheckBox.Checked;
+            Properties.Settings.Default.Save();
         }
     }
 }

@@ -11,5 +11,8 @@
     <Setting Name="SumatraPdfFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">SumatraPDF.exe</Value>
     </Setting>
+    <Setting Name="SearchAfterEveryKeyPress" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

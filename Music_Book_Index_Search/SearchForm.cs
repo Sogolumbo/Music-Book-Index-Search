@@ -86,7 +86,7 @@ namespace Music_Book_Index_Search
 
             // Draw the background.
             e.DrawBackground();
-            
+
             // Measure the strings.
             SizeF titleTextSize = e.Graphics.MeasureString(item.Title, resultsListBox.Font);
             SizeF detailsTextSize = e.Graphics.MeasureString(item.Details, resultsListBox.Font);
@@ -94,8 +94,8 @@ namespace Music_Book_Index_Search
             //Draw content
             if (CalculateSplitLines(listBox, ref titleTextSize, ref detailsTextSize))
             {
-                DrawString(e, item.Title, 
-                    e.Bounds.Left + _listBoxItemMargin, 
+                DrawString(e, item.Title,
+                    e.Bounds.Left + _listBoxItemMargin,
                     e.Bounds.Top + _listBoxItemMargin);
                 DrawString(e, item.Details,
                     e.Bounds.Right - _listBoxItemMargin - (int)detailsTextSize.Width,
@@ -103,8 +103,8 @@ namespace Music_Book_Index_Search
             }
             else
             {
-                DrawString(e, item.Title, 
-                    e.Bounds.Left + _listBoxItemMargin, 
+                DrawString(e, item.Title,
+                    e.Bounds.Left + _listBoxItemMargin,
                     e.Bounds.Top + _listBoxItemMargin);
                 DrawString(e, item.Details,
                     e.Bounds.Right - _listBoxItemMargin - (int)detailsTextSize.Width,
@@ -159,8 +159,11 @@ namespace Music_Book_Index_Search
         {
             if (_optionsForm == null)
             {
-                _optionsForm = new OptionsForm();
-                _optionsForm.MusicBookSearch = _musicBookSearch;
+                _optionsForm = new OptionsForm()
+                {
+                    MusicBookSearch = _musicBookSearch,
+                    Font = this.Font
+                };
                 _optionsForm.FormClosed += OptionsForm_FormClosed;
                 _optionsForm.Show();
             }
@@ -197,7 +200,10 @@ namespace Music_Book_Index_Search
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-            ShowSearchResults();
+            if (Properties.Settings.Default.SearchAfterEveryKeyPress)
+            {
+                ShowSearchResults();
+            }
         }
 
         private void resultsListBox_DoubleClick(object sender, EventArgs e)
@@ -209,6 +215,15 @@ namespace Music_Book_Index_Search
         private void SearchForm_Load(object sender, EventArgs e)
         {
             var asForm = System.Windows.Automation.AutomationElement.FromHandle(this.Handle);
+        }
+
+        private void searchTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                ShowSearchResults();
+                e.Handled = true;
+            }
         }
     }
 }
