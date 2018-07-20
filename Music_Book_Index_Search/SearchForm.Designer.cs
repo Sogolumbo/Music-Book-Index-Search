@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
             this.resultsListBox = new System.Windows.Forms.ListBox();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.optionsButton = new System.Windows.Forms.Button();
@@ -88,6 +89,7 @@
             this.Controls.Add(this.optionsButton);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.resultsListBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SearchForm";
             this.Text = "Music Book Search";
             this.Load += new System.EventHandler(this.SearchForm_Load);
