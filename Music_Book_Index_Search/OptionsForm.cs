@@ -45,26 +45,15 @@ namespace Music_Book_Index_Search
         private void RefreshMusicBookList()
         {
             musicBookflowLayoutPanel.Controls.Clear();
-            if (_musicBookSearch.MusicBooks.Count < 1)
+            foreach (var filepair in _musicBookSearch.MusicBooks)
             {
-                musicBookflowLayoutPanel.Controls.Add(new Label()
+                var item = new MusicBookItemUserControl()
                 {
-                    Text = "You haven't added any music books yet. Once you added one it will show up here.",
-                    AutoSize = true
-                });
-            }
-            else
-            {
-                foreach (var filepair in _musicBookSearch.MusicBooks)
-                {
-                    var item = new MusicBookItemUserControl()
-                    {
-                        Filepair = filepair,
-                        Width = MusicBookItemWidth()
-                    };
-                    item.RemoveItem += Item_RemoveItem;
-                    musicBookflowLayoutPanel.Controls.Add(item);
-                }
+                    Filepair = filepair,
+                    Width = MusicBookItemWidth()
+                };
+                item.RemoveItem += Item_RemoveItem;
+                musicBookflowLayoutPanel.Controls.Add(item);
             }
         }
 
@@ -127,11 +116,6 @@ namespace Music_Book_Index_Search
 
                 _previousWidth = Width;
             }
-        }
-
-        private void issuesLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://github.com/Sogolumbo/Music-Book-Index-Search");
         }
     }
 }
