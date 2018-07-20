@@ -57,6 +57,7 @@
             this.searchTextBox.Size = new System.Drawing.Size(341, 20);
             this.searchTextBox.TabIndex = 1;
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            this.searchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchTextBox_KeyPress);
             // 
             // optionsButton
             // 

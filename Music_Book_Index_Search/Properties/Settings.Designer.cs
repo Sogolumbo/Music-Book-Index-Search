@@ -58,5 +58,17 @@ namespace Music_Book_Index_Search.Properties {
                 this["SumatraPdfFilePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SearchAfterEveryKeyPress {
+            get {
+                return ((bool)(this["SearchAfterEveryKeyPress"]));
+            }
+            set {
+                this["SearchAfterEveryKeyPress"] = value;
+            }
+        }
     }
 }

@@ -40,6 +40,7 @@
             this.addMusicBookGroupBox = new System.Windows.Forms.GroupBox();
             this.issuesLabel = new System.Windows.Forms.Label();
             this.issuesLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.searchOnKeyPressCheckBox = new System.Windows.Forms.CheckBox();
             this.addMusicBookGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,9 +50,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.musicBookflowLayoutPanel.AutoScroll = true;
-            this.musicBookflowLayoutPanel.Location = new System.Drawing.Point(12, 12);
+            this.musicBookflowLayoutPanel.Location = new System.Drawing.Point(12, 39);
             this.musicBookflowLayoutPanel.Name = "musicBookflowLayoutPanel";
-            this.musicBookflowLayoutPanel.Size = new System.Drawing.Size(469, 335);
+            this.musicBookflowLayoutPanel.Size = new System.Drawing.Size(469, 308);
             this.musicBookflowLayoutPanel.TabIndex = 0;
             this.musicBookflowLayoutPanel.SizeChanged += new System.EventHandler(this.musicBookflowLayoutPanel_SizeChanged);
             // 
@@ -161,12 +162,26 @@
             this.issuesLinkLabel.Text = "Go to the project page";
             this.issuesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.issuesLinkLabel_LinkClicked);
             // 
+            // searchOnKeyPressCheckBox
+            // 
+            this.searchOnKeyPressCheckBox.AutoSize = true;
+            this.searchOnKeyPressCheckBox.Checked = true;
+            this.searchOnKeyPressCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.searchOnKeyPressCheckBox.Location = new System.Drawing.Point(12, 13);
+            this.searchOnKeyPressCheckBox.Name = "searchOnKeyPressCheckBox";
+            this.searchOnKeyPressCheckBox.Size = new System.Drawing.Size(256, 17);
+            this.searchOnKeyPressCheckBox.TabIndex = 10;
+            this.searchOnKeyPressCheckBox.Text = "Search after every key press (resource-intensive)";
+            this.searchOnKeyPressCheckBox.UseVisualStyleBackColor = true;
+            this.searchOnKeyPressCheckBox.CheckedChanged += new System.EventHandler(this.searchOnKeyPressCheckBox_CheckedChanged);
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(493, 453);
+            this.Controls.Add(this.searchOnKeyPressCheckBox);
             this.Controls.Add(this.issuesLinkLabel);
             this.Controls.Add(this.issuesLabel);
             this.Controls.Add(this.addMusicBookGroupBox);
@@ -195,5 +210,6 @@
         private System.Windows.Forms.GroupBox addMusicBookGroupBox;
         private System.Windows.Forms.Label issuesLabel;
         private System.Windows.Forms.LinkLabel issuesLinkLabel;
+        private System.Windows.Forms.CheckBox searchOnKeyPressCheckBox;
     }
 }
