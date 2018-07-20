@@ -18,7 +18,7 @@ The pdf viewer which is used to display the music books is [SumatraPDF](https://
 
 Finished - you can now search your music sheet library.
 
-####Tags
+#### Tags
 The real book
 Jazz books
 the fake book
