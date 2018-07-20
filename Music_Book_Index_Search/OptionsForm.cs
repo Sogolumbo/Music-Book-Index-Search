@@ -34,7 +34,6 @@ namespace Music_Book_Index_Search
 
         private bool _csvChosen;
         private bool _pdfChosen;
-        int _previousWidth;
 
 
         private void _musicBookSearch_MusicBooksChanged(object sender, EventArgs e)
@@ -45,21 +44,32 @@ namespace Music_Book_Index_Search
         private void RefreshMusicBookList()
         {
             musicBookflowLayoutPanel.Controls.Clear();
-            foreach (var filepair in _musicBookSearch.MusicBooks)
+            if (_musicBookSearch.MusicBooks.Count < 1)
             {
-                var item = new MusicBookItemUserControl()
+                musicBookflowLayoutPanel.Controls.Add(new Label()
                 {
-                    Filepair = filepair,
-                    Width = MusicBookItemWidth()
-                };
-                item.RemoveItem += Item_RemoveItem;
-                musicBookflowLayoutPanel.Controls.Add(item);
+                    Text = "You haven't added any music books yet. Once you added one it will show up here.",
+                    AutoSize = true
+                });
+            }
+            else
+            {
+                foreach (var filepair in _musicBookSearch.MusicBooks)
+                {
+                    var item = new MusicBookItemUserControl()
+                    {
+                        Filepair = filepair,
+                        Width = MusicBookItemWidth()
+                    };
+                    item.RemoveItem += Item_RemoveItem;
+                    musicBookflowLayoutPanel.Controls.Add(item);
+                }
             }
         }
 
         private int MusicBookItemWidth()
         {
-            return musicBookflowLayoutPanel.Width - 15;
+            return musicBookflowLayoutPanel.ClientRectangle.Width - 8;
         }
 
         private void Item_RemoveItem(object sender, RemoveItemEventArgs e)
@@ -106,16 +116,16 @@ namespace Music_Book_Index_Search
 
         private void musicBookflowLayoutPanel_SizeChanged(object sender, EventArgs e)
         {
-            if (Width != _previousWidth)
+            int itemWidth = MusicBookItemWidth();
+            foreach (Control control in musicBookflowLayoutPanel.Controls)
             {
-                int itemWidth = MusicBookItemWidth();
-                foreach (Control control in musicBookflowLayoutPanel.Controls)
-                {
-                    control.Width = itemWidth;
-                }
-
-                _previousWidth = Width;
+                control.Width = itemWidth;
             }
+        }
+
+        private void issuesLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Sogolumbo/Music-Book-Index-Search");
         }
     }
 }
