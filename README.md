@@ -1,4 +1,4 @@
-# Music-Book-Index-Search
+# Music Book Index Search
 [![Build status](https://ci.appveyor.com/api/projects/status/29f755hd7v02tx3c/branch/master?svg=true)](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/master)
 ### A tool to quickly find songs in music book pdfs.
 Imagine you 're at a jam session: Someone proposes a song (e.g. "Someone For My Lady"). Normally you would have to go through the table of contents of the first real book but wouldn't find it until you opened the second real book. Then your next challenge would be finding the right page as the pdf page numbers don't match the table of contents.
@@ -17,3 +17,12 @@ The pdf viewer which is used to display the music books is [SumatraPDF](https://
 5. Select your music book pdf file and the corresponding index csv file and add them.
 
 Finished - you can now search your music sheet library.
+
+####Tags
+The real book
+Jazz books
+the fake book
+search
+index search
+pdf
+fast
