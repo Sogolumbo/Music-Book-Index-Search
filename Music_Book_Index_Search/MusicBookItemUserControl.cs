@@ -16,8 +16,18 @@ namespace Music_Book_Index_Search
         public MusicBookItemUserControl()
         {
             InitializeComponent();
-            var titleFont = new Font(Font.FontFamily, Font.Size * 1.1f, Font.Style);
-            titleLabel.Font = titleFont;
+            FontChanged += MusicBookItemUserControl_FontChanged;
+            SetTitleFont();
+        }
+
+        private void SetTitleFont()
+        {
+            titleLabel.Font = new Font(Font.FontFamily, Font.Size * 1.1f, Font.Style);
+        }
+
+        private void MusicBookItemUserControl_FontChanged(object sender, EventArgs e)
+        {
+            SetTitleFont();
         }
 
         public event EventHandler<RemoveItemEventArgs> RemoveItem;

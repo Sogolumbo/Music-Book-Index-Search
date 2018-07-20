@@ -159,8 +159,11 @@ namespace Music_Book_Index_Search
         {
             if (_optionsForm == null)
             {
-                _optionsForm = new OptionsForm();
-                _optionsForm.MusicBookSearch = _musicBookSearch;
+                _optionsForm = new OptionsForm()
+                {
+                    MusicBookSearch = _musicBookSearch,
+                    Font = this.Font
+                };
                 _optionsForm.FormClosed += OptionsForm_FormClosed;
                 _optionsForm.Show();
             }
