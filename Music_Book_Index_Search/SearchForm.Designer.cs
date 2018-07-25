@@ -86,6 +86,7 @@
             // 
             // openPdfButton
             // 
+            this.openPdfButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.openPdfButton.Enabled = false;
             this.openPdfButton.Location = new System.Drawing.Point(417, 224);
             this.openPdfButton.Name = "openPdfButton";
@@ -96,6 +97,7 @@
             // 
             // favouriteCheckBox
             // 
+            this.favouriteCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.favouriteCheckBox.AutoSize = true;
             this.favouriteCheckBox.Enabled = false;
             this.favouriteCheckBox.Location = new System.Drawing.Point(347, 228);
