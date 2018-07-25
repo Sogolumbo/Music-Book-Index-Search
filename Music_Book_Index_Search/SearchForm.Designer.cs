@@ -33,6 +33,8 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.optionsButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
+            this.openPdfButton = new System.Windows.Forms.Button();
+            this.favouriteCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // resultsListBox
@@ -42,10 +44,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultsListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.resultsListBox.FormattingEnabled = true;
-            this.resultsListBox.Location = new System.Drawing.Point(12, 38);
+            this.resultsListBox.Location = new System.Drawing.Point(12, 39);
             this.resultsListBox.Name = "resultsListBox";
-            this.resultsListBox.Size = new System.Drawing.Size(457, 212);
+            this.resultsListBox.Size = new System.Drawing.Size(457, 179);
             this.resultsListBox.TabIndex = 0;
+            this.resultsListBox.SelectedIndexChanged += new System.EventHandler(this.resultsListBox_SelectedIndexChanged);
             this.resultsListBox.DoubleClick += new System.EventHandler(this.resultsListBox_DoubleClick);
             // 
             // searchTextBox
@@ -81,11 +84,35 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // openPdfButton
+            // 
+            this.openPdfButton.Enabled = false;
+            this.openPdfButton.Location = new System.Drawing.Point(417, 224);
+            this.openPdfButton.Name = "openPdfButton";
+            this.openPdfButton.Size = new System.Drawing.Size(52, 23);
+            this.openPdfButton.TabIndex = 3;
+            this.openPdfButton.Text = "Open";
+            this.openPdfButton.UseVisualStyleBackColor = true;
+            // 
+            // favouriteCheckBox
+            // 
+            this.favouriteCheckBox.AutoSize = true;
+            this.favouriteCheckBox.Enabled = false;
+            this.favouriteCheckBox.Location = new System.Drawing.Point(347, 228);
+            this.favouriteCheckBox.Name = "favouriteCheckBox";
+            this.favouriteCheckBox.Size = new System.Drawing.Size(64, 17);
+            this.favouriteCheckBox.TabIndex = 4;
+            this.favouriteCheckBox.Text = "Favorite";
+            this.favouriteCheckBox.UseVisualStyleBackColor = true;
+            this.favouriteCheckBox.CheckedChanged += new System.EventHandler(this.favouriteCheckBox_CheckedChanged);
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 261);
+            this.ClientSize = new System.Drawing.Size(481, 259);
+            this.Controls.Add(this.favouriteCheckBox);
+            this.Controls.Add(this.openPdfButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.optionsButton);
             this.Controls.Add(this.searchTextBox);
@@ -105,6 +132,8 @@
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button optionsButton;
         private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Button openPdfButton;
+        private System.Windows.Forms.CheckBox favouriteCheckBox;
     }
 }
 

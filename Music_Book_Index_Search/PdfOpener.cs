@@ -25,8 +25,10 @@ namespace Music_Book_Index_Search
                     catch(System.ComponentModel.Win32Exception)//sumatraPDF.exe not found
                     {
                         MessageBox.Show("The SumatraPDF.exe file could not be found. Please select the file.");
-                        var dialog = new OpenFileDialog();
-                        dialog.Filter = "Executable files|*.exe|All files|*.*";
+                        var dialog = new OpenFileDialog
+                        {
+                            Filter = "Executable files|*.exe|All files|*.*"
+                        };
                         if (dialog.ShowDialog() == DialogResult.OK)
                         {
                             Properties.Settings.Default.SumatraPdfFilePath = dialog.FileName;

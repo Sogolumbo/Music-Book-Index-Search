@@ -70,5 +70,16 @@ namespace Music_Book_Index_Search.Properties {
                 this["SearchAfterEveryKeyPress"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection Favourites {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Favourites"]));
+            }
+            set {
+                this["Favourites"] = value;
+            }
+        }
     }
 }
