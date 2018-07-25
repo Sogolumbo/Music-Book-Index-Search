@@ -23,7 +23,7 @@ namespace Music_Book_Index_Search
             if (TabletPcSupport.IsTabletMode)
             {
                 Font = new Font(Font.FontFamily, 10);
-                _listBoxItemMargin = 6;
+                _listBoxItemMargin = 8;
             }
 
             Properties.Settings.Default.Log = "";
@@ -33,13 +33,10 @@ namespace Music_Book_Index_Search
             {
                 _musicBookSearch.MusicBooks = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Tuple<string, string>>>(Properties.Settings.Default.MusicBooks);
             }
+            _musicBookSearch.Favourites = Properties.Settings.Default.Favourites;
             ShowSearchResults();
         }
 
-        private void SearchForm_SizeChanged(object sender, EventArgs e)
-        {
-            resultsListBox.Invalidate();
-        }
 
         OptionsForm _optionsForm;
         MusicBookSearch _musicBookSearch = new MusicBookSearch();
@@ -56,7 +53,7 @@ namespace Music_Book_Index_Search
 
             // Measure the strings.
             SizeF titleTextSize = e.Graphics.MeasureString(item.Title, resultsListBox.Font);
-            SizeF detailsTextSize = e.Graphics.MeasureString(item.Details, resultsListBox.Font);
+            SizeF detailsTextSize = e.Graphics.MeasureString(item.Location, resultsListBox.Font);
 
             // Set the required size.
             if (CalculateSplitLines(listBox, ref titleTextSize, ref detailsTextSize))
@@ -89,7 +86,7 @@ namespace Music_Book_Index_Search
 
             // Measure the strings.
             SizeF titleTextSize = e.Graphics.MeasureString(item.Title, resultsListBox.Font);
-            SizeF detailsTextSize = e.Graphics.MeasureString(item.Details, resultsListBox.Font);
+            SizeF detailsTextSize = e.Graphics.MeasureString(item.Location, resultsListBox.Font);
 
             //Draw content
             if (CalculateSplitLines(listBox, ref titleTextSize, ref detailsTextSize))
@@ -97,7 +94,7 @@ namespace Music_Book_Index_Search
                 DrawString(e, item.Title,
                     e.Bounds.Left + _listBoxItemMargin,
                     e.Bounds.Top + _listBoxItemMargin);
-                DrawString(e, item.Details,
+                DrawString(e, item.Location,
                     e.Bounds.Right - _listBoxItemMargin - (int)detailsTextSize.Width,
                     e.Bounds.Top + _listBoxItemMargin);
             }
@@ -106,7 +103,7 @@ namespace Music_Book_Index_Search
                 DrawString(e, item.Title,
                     e.Bounds.Left + _listBoxItemMargin,
                     e.Bounds.Top + _listBoxItemMargin);
-                DrawString(e, item.Details,
+                DrawString(e, item.Location,
                     e.Bounds.Right - _listBoxItemMargin - (int)detailsTextSize.Width,
                     e.Bounds.Top + _listBoxItemMargin + (int)titleTextSize.Height);
             }
@@ -152,7 +149,13 @@ namespace Music_Book_Index_Search
         {
             var tempString = Newtonsoft.Json.JsonConvert.SerializeObject(_musicBookSearch.MusicBooks);
             Properties.Settings.Default.MusicBooks = tempString;
+            Properties.Settings.Default.Favourites = _musicBookSearch.Favourites;
             Properties.Settings.Default.Save();
+        }
+
+        private void SearchForm_SizeChanged(object sender, EventArgs e)
+        {
+            resultsListBox.Invalidate();
         }
 
         private void optionsButton_Click(object sender, EventArgs e)
@@ -191,11 +194,9 @@ namespace Music_Book_Index_Search
         {
             resultsListBox.Items.Clear();
 
-            var results = _musicBookSearch.SearchMusicBooks(searchTextBox.Text).Select(item => new SongItem { Data = item });
-            foreach (SongItem result in results)
-            {
-                resultsListBox.Items.Add(result);
-            }
+            SongItem[] results = _musicBookSearch.SearchMusicBooks(searchTextBox.Text).ToArray();
+            resultsListBox.Items.AddRange(results);
+            SetSelectedItemOptionsVisibility();
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
@@ -208,13 +209,13 @@ namespace Music_Book_Index_Search
 
         private void resultsListBox_DoubleClick(object sender, EventArgs e)
         {
-            var selectedItemData = ((SongItem)resultsListBox.SelectedItem).Data;
-            _pdfOpener.Open(selectedItemData.Item3, selectedItemData.Item4);
+            var selectedItem = (SongItem)resultsListBox.SelectedItem;
+            _pdfOpener.Open(selectedItem.PdfFilePath, selectedItem.PageStart);
         }
 
         private void SearchForm_Load(object sender, EventArgs e)
         {
-            var asForm = System.Windows.Automation.AutomationElement.FromHandle(this.Handle);
+            var asForm = System.Windows.Automation.AutomationElement.FromHandle(Handle);
         }
 
         private void searchTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -224,6 +225,27 @@ namespace Music_Book_Index_Search
                 ShowSearchResults();
                 e.Handled = true;
             }
+        }
+
+        private void resultsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetSelectedItemOptionsVisibility();
+        }
+
+        private void SetSelectedItemOptionsVisibility()
+        {
+            openPdfButton.Enabled = favouriteCheckBox.Enabled = resultsListBox.SelectedItem != null;
+            if (favouriteCheckBox.Enabled)
+            {
+                var item = (SongItem)resultsListBox.SelectedItem;
+                favouriteCheckBox.Checked = _musicBookSearch.IsFavourite(item.Title);
+            }
+        }
+
+        private void favouriteCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            var song = resultsListBox.SelectedItem as SongItem;
+            _musicBookSearch.SetFavourite(song.Title, favouriteCheckBox.Checked);
         }
     }
 }

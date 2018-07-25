@@ -5,25 +5,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Music_Book_Index_Search
 {
     public class MusicBookSearch
     {
-        private List<Tuple<string, string>> _musicBooks = new List<Tuple<string, string>>(); //csv, pdf filepath
-        private List<Tuple<string, string, string, int, int?>> _index = new List<Tuple<string, string, string, int, int?>>();//Title, music book name (csv title), pdf filepath, page start, page end 
+        public event EventHandler MusicBooksChanged;
+
 
         public List<Tuple<string, string>> MusicBooks
         {
             get { return new List<Tuple<string, string>>(_musicBooks); }
             set
             {
-                _musicBooks =  new List<Tuple<string, string>>(value);
+                _musicBooks = new List<Tuple<string, string>>(value);
                 OnMusicBooksChanged();
             }
         }
+        public System.Collections.Specialized.StringCollection Favourites
+        {
+            get
+            {
+                return _favourites;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    _favourites = new System.Collections.Specialized.StringCollection();
+                }
+                else
+                {
+                    _favourites = value;
+                }
+            }
+        }
 
-        public event EventHandler MusicBooksChanged;
+
+        private List<Tuple<string, string>> _musicBooks = new List<Tuple<string, string>>(); //csv, pdf filepath
+        private List<SongItem> _index = new List<SongItem>();
+        private System.Collections.Specialized.StringCollection _favourites = new System.Collections.Specialized.StringCollection();
+
 
         public void AddMusicBook(Tuple<string, string> filepair)
         {
@@ -36,6 +59,36 @@ namespace Music_Book_Index_Search
             OnMusicBooksChanged();
         }
 
+        public IEnumerable<SongItem> SearchMusicBooks(string searchedName)
+        {
+            if (String.IsNullOrEmpty(searchedName))
+            {
+                return _index;
+            }
+            searchedName = searchedName.ToLower();
+            return _index.Where(song => song.Title.ToLower().Contains(searchedName));
+        }
+
+        public bool IsFavourite(string song)
+        {
+            return _favourites.Contains(song);
+        }
+        public void SetFavourite(string song, bool value)
+        {
+            if (value)
+            {
+                if (!_favourites.Contains(song))
+                {
+                    _favourites.Add(song);
+                }
+            }
+            else
+            {
+                _favourites.Remove(song);
+            }
+        }
+
+
         void OnMusicBooksChanged()
         {
             _index.Clear();
@@ -43,7 +96,7 @@ namespace Music_Book_Index_Search
             {
                 var csvData = ProcessCsv(filepair.Item1);
                 _index.AddRange(
-                   csvData.Select(tuple => new Tuple<string, string, string, int, int?>(tuple.Item1, Path.GetFileNameWithoutExtension(filepair.Item1), filepair.Item2, tuple.Item2, tuple.Item3)));
+                   csvData.Select(tuple => new SongItem(tuple.Item1, Path.GetFileNameWithoutExtension(filepair.Item1), filepair.Item2, tuple.Item2, tuple.Item3)));
             }
             _index.Sort();
 
@@ -79,51 +132,54 @@ namespace Music_Book_Index_Search
             Properties.Settings.Default.Save();
             return result;
         }
-
-        public IEnumerable<Tuple<string, string, string, int, int?>> SearchMusicBooks(string name)
-        {
-            if (String.IsNullOrWhiteSpace(name))
-            {
-                return _index;
-            }
-            name = name.ToLower();
-            foreach(var element in _index)
-            {
-                if (element.Item1.ToLower().Contains(name))
-                {
-
-                }
-            }
-            return _index.Where(item => item.Item1.ToLower().Contains(name));
-        }
     }
 }
 
-public struct SongItem
+public class SongItem : IComparable
 {
-    public Tuple<string, string, string, int, int?> Data { get; set; }
-    public string Title
+    public SongItem(Tuple<string, string, string, int, int?> data)  //Title, music book name (csv title), pdf filepath, page start, page end 
     {
-        get
-        {
-            return Data.Item1;
-        }
+        Title = data.Item1;
+        MusicBookName = data.Item2;
+        PdfFilePath = data.Item3;
+        PageStart = data.Item4;
+        PageEnd = data.Item5;
     }
-    public string Details
+    public SongItem(string title, string musicBookName, string pdfFilePath, int pageStart, int? pageEnd)
+    {
+        Title = title;
+        MusicBookName = musicBookName;
+        PdfFilePath = pdfFilePath;
+        PageStart = pageStart;
+        PageEnd = pageEnd;
+    }
+
+    public string Title { get; private set; }
+    public string MusicBookName { get; private set; }
+    public string PdfFilePath { get; private set; }
+    public int PageStart { get; private set; }
+    public int? PageEnd { get; private set; }
+
+    public string Location
     {
         get
         {
             string pages = "";
-            if (Data.Item5.HasValue)
+            if (PageEnd.HasValue)
             {
-                pages = "-" + Data.Item5;
+                pages = "-" + PageEnd;
             }
-            return Data.Item2 + " p." + Data.Item4 + pages + "";
+            return MusicBookName + " p." + PageStart + pages + "";
         }
     }
 
     public override string ToString()
     {
-        return Title + "    " + Details;
+        return Title + " in " + Location;
+    }
+
+    public int CompareTo(object obj)
+    {
+        return ToString().CompareTo(obj.ToString());
     }
 }
