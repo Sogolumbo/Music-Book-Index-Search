@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -265,6 +266,12 @@ namespace Music_Book_Index_Search
         private void openPdfButton_Click(object sender, EventArgs e)
         {
             OpenSelectedSong();
+        }
+
+        private void searchBackingTrackButton_Click(object sender, EventArgs e)
+        {
+            var song = resultsListBox.SelectedItem as SongItem;
+            Process.Start(@"https://www.youtube.com/results?search_query=" + Uri.EscapeDataString(song.Title) + "+backing+track");
         }
     }
 }

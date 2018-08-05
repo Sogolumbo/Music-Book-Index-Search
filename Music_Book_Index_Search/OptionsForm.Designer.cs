@@ -178,6 +178,7 @@
             // 
             // appDataPathButton
             // 
+            this.appDataPathButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.appDataPathButton.Location = new System.Drawing.Point(406, 9);
             this.appDataPathButton.Name = "appDataPathButton";
             this.appDataPathButton.Size = new System.Drawing.Size(75, 23);
