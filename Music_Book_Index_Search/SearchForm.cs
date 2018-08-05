@@ -194,8 +194,12 @@ namespace Music_Book_Index_Search
         {
             resultsListBox.Items.Clear();
 
-            SongItem[] results = _musicBookSearch.SearchMusicBooks(searchTextBox.Text).ToArray();
-            resultsListBox.Items.AddRange(results);
+            IEnumerable<SongItem> results = _musicBookSearch.SearchMusicBooks(searchTextBox.Text);
+            if (showFavoritesOnlyCheckBox.Checked)
+            {
+                results = results.Where(songItem => _musicBookSearch.Favourites.Contains(songItem.Title));
+            }
+            resultsListBox.Items.AddRange(results.ToArray());
             SetSelectedItemOptionsVisibility();
         }
 
@@ -208,6 +212,11 @@ namespace Music_Book_Index_Search
         }
 
         private void resultsListBox_DoubleClick(object sender, EventArgs e)
+        {
+            OpenSelectedSong();
+        }
+
+        private void OpenSelectedSong()
         {
             var selectedItem = (SongItem)resultsListBox.SelectedItem;
             _pdfOpener.Open(selectedItem.PdfFilePath, selectedItem.PageStart);
@@ -246,6 +255,16 @@ namespace Music_Book_Index_Search
         {
             var song = resultsListBox.SelectedItem as SongItem;
             _musicBookSearch.SetFavourite(song.Title, favouriteCheckBox.Checked);
+        }
+
+        private void showFavoritesOnlyCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowSearchResults();
+        }
+
+        private void openPdfButton_Click(object sender, EventArgs e)
+        {
+            OpenSelectedSong();
         }
     }
 }

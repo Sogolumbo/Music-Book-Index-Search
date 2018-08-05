@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -133,6 +135,25 @@ namespace Music_Book_Index_Search
         {
             Properties.Settings.Default.SearchAfterEveryKeyPress = searchOnKeyPressCheckBox.Checked;
             Properties.Settings.Default.Save();
+        }
+
+        private void appDataPathButton_Click(object sender, EventArgs e)
+        {
+            var Result = MessageBox.Show(
+                "Did you lose your data (favorites, added books, ...)?" 
+                    + Environment.NewLine 
+                    + "The reason might be the last update of this program. The data is saved in the user.config file. After an update a new file is created in a new folder. If you want to restore your previous data, copy the content of the old file into the new file." 
+                    + Environment.NewLine 
+                    + "Do you want to restore the data (the containing folder will be opened)?", 
+                "Lost Data", 
+                MessageBoxButtons.YesNo);
+            if (Result == DialogResult.Yes)
+            {
+                var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                path = Path.GetDirectoryName(path);
+                path = Path.Combine(path, @"Local\Music_Book_Index_Search");
+                Process.Start(path);
+            }
         }
     }
 }
