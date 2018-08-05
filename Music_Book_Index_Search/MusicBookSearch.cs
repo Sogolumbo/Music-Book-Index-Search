@@ -73,9 +73,9 @@ namespace Music_Book_Index_Search
         {
             return _favourites.Contains(song);
         }
-        public void SetFavourite(string song, bool value)
+        public void SetFavourite(string song, bool isFavorite)
         {
-            if (value)
+            if (isFavorite)
             {
                 if (!_favourites.Contains(song))
                 {

@@ -35,6 +35,7 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.openPdfButton = new System.Windows.Forms.Button();
             this.favouriteCheckBox = new System.Windows.Forms.CheckBox();
+            this.showFavoritesOnlyCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // resultsListBox
@@ -46,7 +47,7 @@
             this.resultsListBox.FormattingEnabled = true;
             this.resultsListBox.Location = new System.Drawing.Point(12, 39);
             this.resultsListBox.Name = "resultsListBox";
-            this.resultsListBox.Size = new System.Drawing.Size(457, 179);
+            this.resultsListBox.Size = new System.Drawing.Size(457, 265);
             this.resultsListBox.TabIndex = 0;
             this.resultsListBox.SelectedIndexChanged += new System.EventHandler(this.resultsListBox_SelectedIndexChanged);
             this.resultsListBox.DoubleClick += new System.EventHandler(this.resultsListBox_DoubleClick);
@@ -88,19 +89,20 @@
             // 
             this.openPdfButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.openPdfButton.Enabled = false;
-            this.openPdfButton.Location = new System.Drawing.Point(417, 224);
+            this.openPdfButton.Location = new System.Drawing.Point(417, 310);
             this.openPdfButton.Name = "openPdfButton";
             this.openPdfButton.Size = new System.Drawing.Size(52, 23);
             this.openPdfButton.TabIndex = 3;
             this.openPdfButton.Text = "Open";
             this.openPdfButton.UseVisualStyleBackColor = true;
+            this.openPdfButton.Click += new System.EventHandler(this.openPdfButton_Click);
             // 
             // favouriteCheckBox
             // 
             this.favouriteCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.favouriteCheckBox.AutoSize = true;
             this.favouriteCheckBox.Enabled = false;
-            this.favouriteCheckBox.Location = new System.Drawing.Point(347, 228);
+            this.favouriteCheckBox.Location = new System.Drawing.Point(347, 314);
             this.favouriteCheckBox.Name = "favouriteCheckBox";
             this.favouriteCheckBox.Size = new System.Drawing.Size(64, 17);
             this.favouriteCheckBox.TabIndex = 4;
@@ -108,11 +110,24 @@
             this.favouriteCheckBox.UseVisualStyleBackColor = true;
             this.favouriteCheckBox.CheckedChanged += new System.EventHandler(this.favouriteCheckBox_CheckedChanged);
             // 
+            // showFavoritesOnlyCheckBox
+            // 
+            this.showFavoritesOnlyCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.showFavoritesOnlyCheckBox.AutoSize = true;
+            this.showFavoritesOnlyCheckBox.Location = new System.Drawing.Point(13, 314);
+            this.showFavoritesOnlyCheckBox.Name = "showFavoritesOnlyCheckBox";
+            this.showFavoritesOnlyCheckBox.Size = new System.Drawing.Size(118, 17);
+            this.showFavoritesOnlyCheckBox.TabIndex = 5;
+            this.showFavoritesOnlyCheckBox.Text = "Show favorites only";
+            this.showFavoritesOnlyCheckBox.UseVisualStyleBackColor = true;
+            this.showFavoritesOnlyCheckBox.CheckedChanged += new System.EventHandler(this.showFavoritesOnlyCheckBox_CheckedChanged);
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 259);
+            this.ClientSize = new System.Drawing.Size(481, 345);
+            this.Controls.Add(this.showFavoritesOnlyCheckBox);
             this.Controls.Add(this.favouriteCheckBox);
             this.Controls.Add(this.openPdfButton);
             this.Controls.Add(this.searchButton);
@@ -136,6 +151,7 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button openPdfButton;
         private System.Windows.Forms.CheckBox favouriteCheckBox;
+        private System.Windows.Forms.CheckBox showFavoritesOnlyCheckBox;
     }
 }
 

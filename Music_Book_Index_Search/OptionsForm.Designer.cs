@@ -41,6 +41,7 @@
             this.issuesLabel = new System.Windows.Forms.Label();
             this.issuesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.searchOnKeyPressCheckBox = new System.Windows.Forms.CheckBox();
+            this.appDataPathButton = new System.Windows.Forms.Button();
             this.addMusicBookGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -175,12 +176,23 @@
             this.searchOnKeyPressCheckBox.UseVisualStyleBackColor = true;
             this.searchOnKeyPressCheckBox.CheckedChanged += new System.EventHandler(this.searchOnKeyPressCheckBox_CheckedChanged);
             // 
+            // appDataPathButton
+            // 
+            this.appDataPathButton.Location = new System.Drawing.Point(406, 9);
+            this.appDataPathButton.Name = "appDataPathButton";
+            this.appDataPathButton.Size = new System.Drawing.Size(75, 23);
+            this.appDataPathButton.TabIndex = 11;
+            this.appDataPathButton.Text = "Lost Data...";
+            this.appDataPathButton.UseVisualStyleBackColor = true;
+            this.appDataPathButton.Click += new System.EventHandler(this.appDataPathButton_Click);
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(493, 591);
+            this.Controls.Add(this.appDataPathButton);
             this.Controls.Add(this.searchOnKeyPressCheckBox);
             this.Controls.Add(this.issuesLinkLabel);
             this.Controls.Add(this.issuesLabel);
@@ -211,5 +223,6 @@
         private System.Windows.Forms.Label issuesLabel;
         private System.Windows.Forms.LinkLabel issuesLinkLabel;
         private System.Windows.Forms.CheckBox searchOnKeyPressCheckBox;
+        private System.Windows.Forms.Button appDataPathButton;
     }
 }
