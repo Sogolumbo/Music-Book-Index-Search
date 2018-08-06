@@ -36,6 +36,7 @@
             this.openPdfButton = new System.Windows.Forms.Button();
             this.favouriteCheckBox = new System.Windows.Forms.CheckBox();
             this.showFavoritesOnlyCheckBox = new System.Windows.Forms.CheckBox();
+            this.searchBackingTrackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // resultsListBox
@@ -102,9 +103,10 @@
             this.favouriteCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.favouriteCheckBox.AutoSize = true;
             this.favouriteCheckBox.Enabled = false;
-            this.favouriteCheckBox.Location = new System.Drawing.Point(347, 314);
+            this.favouriteCheckBox.Location = new System.Drawing.Point(344, 314);
             this.favouriteCheckBox.Name = "favouriteCheckBox";
-            this.favouriteCheckBox.Size = new System.Drawing.Size(64, 17);
+            this.favouriteCheckBox.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.favouriteCheckBox.Size = new System.Drawing.Size(67, 17);
             this.favouriteCheckBox.TabIndex = 4;
             this.favouriteCheckBox.Text = "Favorite";
             this.favouriteCheckBox.UseVisualStyleBackColor = true;
@@ -122,11 +124,23 @@
             this.showFavoritesOnlyCheckBox.UseVisualStyleBackColor = true;
             this.showFavoritesOnlyCheckBox.CheckedChanged += new System.EventHandler(this.showFavoritesOnlyCheckBox_CheckedChanged);
             // 
+            // searchBackingTrackButton
+            // 
+            this.searchBackingTrackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchBackingTrackButton.Location = new System.Drawing.Point(196, 310);
+            this.searchBackingTrackButton.Name = "searchBackingTrackButton";
+            this.searchBackingTrackButton.Size = new System.Drawing.Size(142, 23);
+            this.searchBackingTrackButton.TabIndex = 6;
+            this.searchBackingTrackButton.Text = "Search backing track (YT)";
+            this.searchBackingTrackButton.UseVisualStyleBackColor = true;
+            this.searchBackingTrackButton.Click += new System.EventHandler(this.searchBackingTrackButton_Click);
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 345);
+            this.Controls.Add(this.searchBackingTrackButton);
             this.Controls.Add(this.showFavoritesOnlyCheckBox);
             this.Controls.Add(this.favouriteCheckBox);
             this.Controls.Add(this.openPdfButton);
@@ -152,6 +166,7 @@
         private System.Windows.Forms.Button openPdfButton;
         private System.Windows.Forms.CheckBox favouriteCheckBox;
         private System.Windows.Forms.CheckBox showFavoritesOnlyCheckBox;
+        private System.Windows.Forms.Button searchBackingTrackButton;
     }
 }
 
