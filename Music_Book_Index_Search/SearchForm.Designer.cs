@@ -127,6 +127,7 @@
             // searchBackingTrackButton
             // 
             this.searchBackingTrackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchBackingTrackButton.Enabled = false;
             this.searchBackingTrackButton.Location = new System.Drawing.Point(196, 310);
             this.searchBackingTrackButton.Name = "searchBackingTrackButton";
             this.searchBackingTrackButton.Size = new System.Drawing.Size(142, 23);
