@@ -22,7 +22,7 @@ The program runs on Windows 32bit and 64bit systems.
 5. Open Music-Book-Index-Search and go to Options.
 6. Select your music book pdf file and the corresponding index csv file and add them.
 
-Finished - you can now search your music sheet library.
+That's it - you can now search your music sheet library.
 
 
 ## Screenshots
