@@ -244,7 +244,12 @@ namespace Music_Book_Index_Search
 
         private void SetSelectedItemOptionsVisibility()
         {
-            openPdfButton.Enabled = favouriteCheckBox.Enabled = resultsListBox.SelectedItem != null;
+            bool isAnyItemSelected = resultsListBox.SelectedItem != null;
+
+            searchBackingTrackButton.Enabled = isAnyItemSelected;
+            openPdfButton.Enabled = isAnyItemSelected;
+            favouriteCheckBox.Enabled = isAnyItemSelected;
+
             if (favouriteCheckBox.Enabled)
             {
                 var item = (SongItem)resultsListBox.SelectedItem;
