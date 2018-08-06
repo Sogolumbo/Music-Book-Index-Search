@@ -28,7 +28,7 @@ Finished - you can now search your music sheet library.
 ## Screenshots
 Desktop view:
 
-![music book search desktop view](https://user-images.githubusercontent.com/33571916/42966148-84e1d674-8b9c-11e8-958c-18055ea2d858.PNG)
+![music book search screenshot](https://user-images.githubusercontent.com/33571916/43721557-60d40e32-9993-11e8-9566-90f5e30e6646.PNG)
 
 Tablet view with bigger font and bigger spacing between search results:
 
