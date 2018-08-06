@@ -19,7 +19,7 @@ The program runs on Windows 32bit and 64bit systems.
 2. [Download the binary files](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/master/artifacts) (*.exe and *.dll) for Music-Book-Index-Search.
 3. Get the .csv files with the indices for your music books (download from [book-indices](https://github.com/aspiers/book-indices) or create your own).
 4. Download [SumatraPDF](https://www.sumatrapdfreader.org).
-5. Open Music-Book-Index-Search and go to Options.
+5. Open Music-Book-Index-Search.exe and go to Options.
 6. Select your music book pdf file and the corresponding index csv file and add them.
 
 That's it - you can now search your music sheet library.
