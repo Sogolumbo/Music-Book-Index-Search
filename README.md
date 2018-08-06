@@ -30,10 +30,9 @@ Desktop view:
 
 ![music book search screenshot](https://user-images.githubusercontent.com/33571916/43721557-60d40e32-9993-11e8-9566-90f5e30e6646.PNG)
 
-Tablet view with bigger font and bigger spacing between search results:
+Tablet view (bigger fonts and spacings):
 
-![music book search tablet view](https://user-images.githubusercontent.com/33571916/42966429-69b5ca12-8b9d-11e8-819d-f73a3fec3350.PNG)
-
+![music book search screenshot](https://user-images.githubusercontent.com/33571916/43722327-4e58976c-9995-11e8-91b0-d978ab9a366d.PNG)
 
 ## Contribution
 The project is a standard visual studio solution. Feel free to fork, improve, create pull requests and share this project.
