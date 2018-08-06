@@ -35,5 +35,5 @@ Tablet view with bigger font and bigger spacing between search results:
 ![music book search tablet view](https://user-images.githubusercontent.com/33571916/42966429-69b5ca12-8b9d-11e8-819d-f73a3fec3350.PNG)
 
 
-##Contribution
+## Contribution
 The project is a standard visual studio solution. Feel free to fork, improve, create pull requests and share this project.
