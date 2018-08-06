@@ -16,7 +16,7 @@ The program runs on Windows 32bit and 64bit systems.
 
 ## Setup
 0. Make sure that you have the [.NET Framework Runtime 4.6.1 or newer](https://www.microsoft.com/net/download/windows) installed (most likely it's already there).
-1. [Download the binariy files](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/master) (*.exe and *.dll) for Music-Book-Index-Search.
+1. [Download the binary files](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/master) (*.exe and *.dll) for Music-Book-Index-Search.
 2. Get the .csv files with the indices for your music books (download from [book-indices](https://github.com/aspiers/book-indices) or create your own).
 3. Download [SumatraPDF](https://www.sumatrapdfreader.org).
 4. Open Music-Book-Index-Search and go to Options.
