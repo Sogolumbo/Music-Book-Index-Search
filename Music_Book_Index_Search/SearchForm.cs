@@ -189,6 +189,7 @@ namespace Music_Book_Index_Search
         private void searchButton_Click(object sender, EventArgs e)
         {
             ShowSearchResults();
+            resultsListBox.Focus();
         }
 
         private void ShowSearchResults()
@@ -277,6 +278,15 @@ namespace Music_Book_Index_Search
         {
             var song = resultsListBox.SelectedItem as SongItem;
             Process.Start(@"https://www.youtube.com/results?search_query=" + Uri.EscapeDataString(song.Title) + "+backing+track");
+        }
+
+        private void resultsListBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                OpenSelectedSong();
+                e.Handled = true;
+            }
         }
     }
 }

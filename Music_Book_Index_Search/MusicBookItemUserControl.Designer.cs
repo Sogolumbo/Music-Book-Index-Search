@@ -37,8 +37,8 @@
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
-            this.titleLabel.Location = new System.Drawing.Point(5, 8);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.titleLabel.Location = new System.Drawing.Point(6, 6);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(35, 13);
             this.titleLabel.TabIndex = 0;
@@ -47,7 +47,7 @@
             // csvFileLabel
             // 
             this.csvFileLabel.AutoSize = true;
-            this.csvFileLabel.Location = new System.Drawing.Point(5, 26);
+            this.csvFileLabel.Location = new System.Drawing.Point(6, 25);
             this.csvFileLabel.Name = "csvFileLabel";
             this.csvFileLabel.Size = new System.Drawing.Size(35, 13);
             this.csvFileLabel.TabIndex = 1;
@@ -56,7 +56,7 @@
             // pdfFileLabel
             // 
             this.pdfFileLabel.AutoSize = true;
-            this.pdfFileLabel.Location = new System.Drawing.Point(5, 39);
+            this.pdfFileLabel.Location = new System.Drawing.Point(6, 38);
             this.pdfFileLabel.Name = "pdfFileLabel";
             this.pdfFileLabel.Size = new System.Drawing.Size(35, 13);
             this.pdfFileLabel.TabIndex = 2;
@@ -65,7 +65,7 @@
             // removeButton
             // 
             this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.removeButton.Location = new System.Drawing.Point(348, 16);
+            this.removeButton.Location = new System.Drawing.Point(345, 15);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(56, 23);
             this.removeButton.TabIndex = 3;
@@ -83,7 +83,8 @@
             this.Controls.Add(this.csvFileLabel);
             this.Controls.Add(this.titleLabel);
             this.Name = "MusicBookItemUserControl";
-            this.Size = new System.Drawing.Size(407, 58);
+            this.Padding = new System.Windows.Forms.Padding(3);
+            this.Size = new System.Drawing.Size(407, 54);
             this.ResumeLayout(false);
             this.PerformLayout();
 
