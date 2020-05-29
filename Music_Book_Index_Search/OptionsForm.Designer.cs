@@ -42,7 +42,9 @@
             this.issuesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.searchOnKeyPressCheckBox = new System.Windows.Forms.CheckBox();
             this.appDataPathButton = new System.Windows.Forms.Button();
+            this.musicBooksListGroupBox = new System.Windows.Forms.GroupBox();
             this.addMusicBookGroupBox.SuspendLayout();
+            this.musicBooksListGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // musicBookflowLayoutPanel
@@ -51,9 +53,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.musicBookflowLayoutPanel.AutoScroll = true;
-            this.musicBookflowLayoutPanel.Location = new System.Drawing.Point(12, 39);
+            this.musicBookflowLayoutPanel.Location = new System.Drawing.Point(6, 19);
             this.musicBookflowLayoutPanel.Name = "musicBookflowLayoutPanel";
-            this.musicBookflowLayoutPanel.Size = new System.Drawing.Size(469, 446);
+            this.musicBookflowLayoutPanel.Size = new System.Drawing.Size(457, 421);
             this.musicBookflowLayoutPanel.TabIndex = 0;
             this.musicBookflowLayoutPanel.SizeChanged += new System.EventHandler(this.musicBookflowLayoutPanel_SizeChanged);
             // 
@@ -187,24 +189,38 @@
             this.appDataPathButton.UseVisualStyleBackColor = true;
             this.appDataPathButton.Click += new System.EventHandler(this.appDataPathButton_Click);
             // 
+            // musicBooksListGroupBox
+            // 
+            this.musicBooksListGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.musicBooksListGroupBox.Controls.Add(this.musicBookflowLayoutPanel);
+            this.musicBooksListGroupBox.Location = new System.Drawing.Point(12, 39);
+            this.musicBooksListGroupBox.Name = "musicBooksListGroupBox";
+            this.musicBooksListGroupBox.Size = new System.Drawing.Size(469, 446);
+            this.musicBooksListGroupBox.TabIndex = 12;
+            this.musicBooksListGroupBox.TabStop = false;
+            this.musicBooksListGroupBox.Text = "Music Books";
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(493, 591);
+            this.Controls.Add(this.musicBooksListGroupBox);
             this.Controls.Add(this.appDataPathButton);
             this.Controls.Add(this.searchOnKeyPressCheckBox);
             this.Controls.Add(this.issuesLinkLabel);
             this.Controls.Add(this.issuesLabel);
             this.Controls.Add(this.addMusicBookGroupBox);
-            this.Controls.Add(this.musicBookflowLayoutPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(410, 241);
             this.Name = "OptionsForm";
             this.Text = "Options - Music Book Search by Sogolumbo";
             this.addMusicBookGroupBox.ResumeLayout(false);
             this.addMusicBookGroupBox.PerformLayout();
+            this.musicBooksListGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,5 +241,6 @@
         private System.Windows.Forms.LinkLabel issuesLinkLabel;
         private System.Windows.Forms.CheckBox searchOnKeyPressCheckBox;
         private System.Windows.Forms.Button appDataPathButton;
+        private System.Windows.Forms.GroupBox musicBooksListGroupBox;
     }
 }

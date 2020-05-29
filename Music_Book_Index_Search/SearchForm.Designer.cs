@@ -37,6 +37,7 @@
             this.favouriteCheckBox = new System.Windows.Forms.CheckBox();
             this.showFavoritesOnlyCheckBox = new System.Windows.Forms.CheckBox();
             this.searchBackingTrackButton = new System.Windows.Forms.Button();
+            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.SuspendLayout();
             // 
             // resultsListBox
@@ -49,9 +50,10 @@
             this.resultsListBox.Location = new System.Drawing.Point(12, 39);
             this.resultsListBox.Name = "resultsListBox";
             this.resultsListBox.Size = new System.Drawing.Size(457, 265);
-            this.resultsListBox.TabIndex = 0;
+            this.resultsListBox.TabIndex = 4;
             this.resultsListBox.SelectedIndexChanged += new System.EventHandler(this.resultsListBox_SelectedIndexChanged);
             this.resultsListBox.DoubleClick += new System.EventHandler(this.resultsListBox_DoubleClick);
+            this.resultsListBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.resultsListBox_KeyPress);
             // 
             // searchTextBox
             // 
@@ -70,7 +72,7 @@
             this.optionsButton.Location = new System.Drawing.Point(417, 10);
             this.optionsButton.Name = "optionsButton";
             this.optionsButton.Size = new System.Drawing.Size(52, 23);
-            this.optionsButton.TabIndex = 2;
+            this.optionsButton.TabIndex = 3;
             this.optionsButton.Text = "Options";
             this.optionsButton.UseVisualStyleBackColor = true;
             this.optionsButton.Click += new System.EventHandler(this.optionsButton_Click);
@@ -93,7 +95,7 @@
             this.openPdfButton.Location = new System.Drawing.Point(417, 310);
             this.openPdfButton.Name = "openPdfButton";
             this.openPdfButton.Size = new System.Drawing.Size(52, 23);
-            this.openPdfButton.TabIndex = 3;
+            this.openPdfButton.TabIndex = 8;
             this.openPdfButton.Text = "Open";
             this.openPdfButton.UseVisualStyleBackColor = true;
             this.openPdfButton.Click += new System.EventHandler(this.openPdfButton_Click);
@@ -107,7 +109,7 @@
             this.favouriteCheckBox.Name = "favouriteCheckBox";
             this.favouriteCheckBox.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.favouriteCheckBox.Size = new System.Drawing.Size(67, 17);
-            this.favouriteCheckBox.TabIndex = 4;
+            this.favouriteCheckBox.TabIndex = 7;
             this.favouriteCheckBox.Text = "Favorite";
             this.favouriteCheckBox.UseVisualStyleBackColor = true;
             this.favouriteCheckBox.CheckedChanged += new System.EventHandler(this.favouriteCheckBox_CheckedChanged);
@@ -168,6 +170,7 @@
         private System.Windows.Forms.CheckBox favouriteCheckBox;
         private System.Windows.Forms.CheckBox showFavoritesOnlyCheckBox;
         private System.Windows.Forms.Button searchBackingTrackButton;
+        private System.DirectoryServices.DirectoryEntry directoryEntry1;
     }
 }
 
