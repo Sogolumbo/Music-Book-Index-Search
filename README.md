@@ -24,7 +24,7 @@ The program runs on Windows 32bit and 64bit systems.
 
 That's it - you can now search your music sheet library.
 
-##Download
+## Download
 You can download the app from the [release page](https://github.com/Sogolumbo/Music-Book-Index-Search/releases) or from [appveyor](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/master/artifacts) (appveyor only stores the binaries for a limited time).
 
 ## Screenshots
