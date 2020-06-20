@@ -43,6 +43,7 @@
             this.searchOnKeyPressCheckBox = new System.Windows.Forms.CheckBox();
             this.appDataPathButton = new System.Windows.Forms.Button();
             this.musicBooksListGroupBox = new System.Windows.Forms.GroupBox();
+            this.shortcutLabel = new System.Windows.Forms.Label();
             this.addMusicBookGroupBox.SuspendLayout();
             this.musicBooksListGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +57,7 @@
             this.musicBookflowLayoutPanel.Location = new System.Drawing.Point(6, 19);
             this.musicBookflowLayoutPanel.Name = "musicBookflowLayoutPanel";
             this.musicBookflowLayoutPanel.Size = new System.Drawing.Size(457, 421);
-            this.musicBookflowLayoutPanel.TabIndex = 0;
+            this.musicBookflowLayoutPanel.TabIndex = 11;
             this.musicBookflowLayoutPanel.SizeChanged += new System.EventHandler(this.musicBookflowLayoutPanel_SizeChanged);
             // 
             // chooseCsvButton
@@ -65,7 +66,7 @@
             this.chooseCsvButton.Location = new System.Drawing.Point(311, 17);
             this.chooseCsvButton.Name = "chooseCsvButton";
             this.chooseCsvButton.Size = new System.Drawing.Size(90, 23);
-            this.chooseCsvButton.TabIndex = 3;
+            this.chooseCsvButton.TabIndex = 22;
             this.chooseCsvButton.Text = "Select index file";
             this.chooseCsvButton.UseVisualStyleBackColor = true;
             this.chooseCsvButton.Click += new System.EventHandler(this.chooseCsvButton_Click);
@@ -91,7 +92,7 @@
             this.csvFilepathTextBox.Location = new System.Drawing.Point(6, 20);
             this.csvFilepathTextBox.Name = "csvFilepathTextBox";
             this.csvFilepathTextBox.Size = new System.Drawing.Size(299, 20);
-            this.csvFilepathTextBox.TabIndex = 4;
+            this.csvFilepathTextBox.TabIndex = 21;
             // 
             // pdfFilepathTextBox
             // 
@@ -100,7 +101,7 @@
             this.pdfFilepathTextBox.Location = new System.Drawing.Point(6, 46);
             this.pdfFilepathTextBox.Name = "pdfFilepathTextBox";
             this.pdfFilepathTextBox.Size = new System.Drawing.Size(299, 20);
-            this.pdfFilepathTextBox.TabIndex = 5;
+            this.pdfFilepathTextBox.TabIndex = 23;
             // 
             // choosePdfButton
             // 
@@ -108,7 +109,7 @@
             this.choosePdfButton.Location = new System.Drawing.Point(311, 43);
             this.choosePdfButton.Name = "choosePdfButton";
             this.choosePdfButton.Size = new System.Drawing.Size(90, 23);
-            this.choosePdfButton.TabIndex = 3;
+            this.choosePdfButton.TabIndex = 24;
             this.choosePdfButton.Text = "Select pdf file";
             this.choosePdfButton.UseVisualStyleBackColor = true;
             this.choosePdfButton.Click += new System.EventHandler(this.choosePdfButton_Click);
@@ -120,7 +121,7 @@
             this.addMusicBookButton.Location = new System.Drawing.Point(407, 17);
             this.addMusicBookButton.Name = "addMusicBookButton";
             this.addMusicBookButton.Size = new System.Drawing.Size(56, 49);
-            this.addMusicBookButton.TabIndex = 6;
+            this.addMusicBookButton.TabIndex = 25;
             this.addMusicBookButton.Text = "Add";
             this.addMusicBookButton.UseVisualStyleBackColor = true;
             this.addMusicBookButton.Click += new System.EventHandler(this.addMusicBookButton_Click);
@@ -137,7 +138,7 @@
             this.addMusicBookGroupBox.Location = new System.Drawing.Point(12, 491);
             this.addMusicBookGroupBox.Name = "addMusicBookGroupBox";
             this.addMusicBookGroupBox.Size = new System.Drawing.Size(469, 72);
-            this.addMusicBookGroupBox.TabIndex = 7;
+            this.addMusicBookGroupBox.TabIndex = 20;
             this.addMusicBookGroupBox.TabStop = false;
             this.addMusicBookGroupBox.Text = "Add Music Book";
             // 
@@ -145,7 +146,7 @@
             // 
             this.issuesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.issuesLabel.AutoSize = true;
-            this.issuesLabel.Location = new System.Drawing.Point(9, 569);
+            this.issuesLabel.Location = new System.Drawing.Point(15, 566);
             this.issuesLabel.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.issuesLabel.Name = "issuesLabel";
             this.issuesLabel.Size = new System.Drawing.Size(267, 13);
@@ -156,11 +157,11 @@
             // 
             this.issuesLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.issuesLinkLabel.AutoSize = true;
-            this.issuesLinkLabel.Location = new System.Drawing.Point(276, 569);
+            this.issuesLinkLabel.Location = new System.Drawing.Point(282, 566);
             this.issuesLinkLabel.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.issuesLinkLabel.Name = "issuesLinkLabel";
             this.issuesLinkLabel.Size = new System.Drawing.Size(113, 13);
-            this.issuesLinkLabel.TabIndex = 9;
+            this.issuesLinkLabel.TabIndex = 30;
             this.issuesLinkLabel.TabStop = true;
             this.issuesLinkLabel.Text = "Go to the project page";
             this.issuesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.issuesLinkLabel_LinkClicked);
@@ -173,7 +174,7 @@
             this.searchOnKeyPressCheckBox.Location = new System.Drawing.Point(12, 13);
             this.searchOnKeyPressCheckBox.Name = "searchOnKeyPressCheckBox";
             this.searchOnKeyPressCheckBox.Size = new System.Drawing.Size(256, 17);
-            this.searchOnKeyPressCheckBox.TabIndex = 10;
+            this.searchOnKeyPressCheckBox.TabIndex = 0;
             this.searchOnKeyPressCheckBox.Text = "Search after every key press (resource-intensive)";
             this.searchOnKeyPressCheckBox.UseVisualStyleBackColor = true;
             this.searchOnKeyPressCheckBox.CheckedChanged += new System.EventHandler(this.searchOnKeyPressCheckBox_CheckedChanged);
@@ -184,7 +185,7 @@
             this.appDataPathButton.Location = new System.Drawing.Point(406, 9);
             this.appDataPathButton.Name = "appDataPathButton";
             this.appDataPathButton.Size = new System.Drawing.Size(75, 23);
-            this.appDataPathButton.TabIndex = 11;
+            this.appDataPathButton.TabIndex = 1;
             this.appDataPathButton.Text = "Lost Data...";
             this.appDataPathButton.UseVisualStyleBackColor = true;
             this.appDataPathButton.Click += new System.EventHandler(this.appDataPathButton_Click);
@@ -198,16 +199,29 @@
             this.musicBooksListGroupBox.Location = new System.Drawing.Point(12, 39);
             this.musicBooksListGroupBox.Name = "musicBooksListGroupBox";
             this.musicBooksListGroupBox.Size = new System.Drawing.Size(469, 446);
-            this.musicBooksListGroupBox.TabIndex = 12;
+            this.musicBooksListGroupBox.TabIndex = 10;
             this.musicBooksListGroupBox.TabStop = false;
             this.musicBooksListGroupBox.Text = "Music Books";
+            // 
+            // shortcutLabel
+            // 
+            this.shortcutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.shortcutLabel.AutoSize = true;
+            this.shortcutLabel.Location = new System.Drawing.Point(15, 585);
+            this.shortcutLabel.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.shortcutLabel.Name = "shortcutLabel";
+            this.shortcutLabel.Size = new System.Drawing.Size(237, 39);
+            this.shortcutLabel.TabIndex = 13;
+            this.shortcutLabel.Text = "Shortcuts for the main program: \r\nAlt + F: Add/remove selected song from favorite" +
+    "s\r\nCtrl + F: Move focus to the search text box.";
             // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(493, 591);
+            this.ClientSize = new System.Drawing.Size(493, 633);
+            this.Controls.Add(this.shortcutLabel);
             this.Controls.Add(this.musicBooksListGroupBox);
             this.Controls.Add(this.appDataPathButton);
             this.Controls.Add(this.searchOnKeyPressCheckBox);
@@ -242,5 +256,6 @@
         private System.Windows.Forms.CheckBox searchOnKeyPressCheckBox;
         private System.Windows.Forms.Button appDataPathButton;
         private System.Windows.Forms.GroupBox musicBooksListGroupBox;
+        private System.Windows.Forms.Label shortcutLabel;
     }
 }

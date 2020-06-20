@@ -53,6 +53,7 @@
             this.resultsListBox.TabIndex = 4;
             this.resultsListBox.SelectedIndexChanged += new System.EventHandler(this.resultsListBox_SelectedIndexChanged);
             this.resultsListBox.DoubleClick += new System.EventHandler(this.resultsListBox_DoubleClick);
+            this.resultsListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.resultsListBox_KeyDown);
             this.resultsListBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.resultsListBox_KeyPress);
             // 
             // searchTextBox

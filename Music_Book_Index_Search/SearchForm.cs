@@ -260,6 +260,11 @@ namespace Music_Book_Index_Search
 
         private void favouriteCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            ChangeFavouriteBasedOnCheckbox();
+        }
+
+        private void ChangeFavouriteBasedOnCheckbox()
+        {
             var song = resultsListBox.SelectedItem as SongItem;
             _musicBookSearch.SetFavourite(song.Title, favouriteCheckBox.Checked);
         }
@@ -282,9 +287,24 @@ namespace Music_Book_Index_Search
 
         private void resultsListBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter)  // Enter
             {
                 OpenSelectedSong();
+                e.Handled = true;
+            }
+            else if (ModifierKeys == (Keys.Control) && e.KeyChar == '\u0006') // Ctrl + F
+            {
+                searchTextBox.Select();
+                e.Handled = true;
+            }
+        }
+
+        private void resultsListBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == (Keys.Alt | Keys.F)) // Alt + F
+            {
+                favouriteCheckBox.Checked = !favouriteCheckBox.Checked;
+                ChangeFavouriteBasedOnCheckbox();
                 e.Handled = true;
             }
         }
