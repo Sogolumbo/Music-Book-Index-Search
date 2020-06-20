@@ -43,6 +43,7 @@
             this.searchOnKeyPressCheckBox = new System.Windows.Forms.CheckBox();
             this.appDataPathButton = new System.Windows.Forms.Button();
             this.musicBooksListGroupBox = new System.Windows.Forms.GroupBox();
+            this.shortcutLabel = new System.Windows.Forms.Label();
             this.addMusicBookGroupBox.SuspendLayout();
             this.musicBooksListGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -145,7 +146,7 @@
             // 
             this.issuesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.issuesLabel.AutoSize = true;
-            this.issuesLabel.Location = new System.Drawing.Point(9, 569);
+            this.issuesLabel.Location = new System.Drawing.Point(15, 566);
             this.issuesLabel.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.issuesLabel.Name = "issuesLabel";
             this.issuesLabel.Size = new System.Drawing.Size(267, 13);
@@ -156,7 +157,7 @@
             // 
             this.issuesLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.issuesLinkLabel.AutoSize = true;
-            this.issuesLinkLabel.Location = new System.Drawing.Point(276, 569);
+            this.issuesLinkLabel.Location = new System.Drawing.Point(282, 566);
             this.issuesLinkLabel.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.issuesLinkLabel.Name = "issuesLinkLabel";
             this.issuesLinkLabel.Size = new System.Drawing.Size(113, 13);
@@ -202,12 +203,25 @@
             this.musicBooksListGroupBox.TabStop = false;
             this.musicBooksListGroupBox.Text = "Music Books";
             // 
+            // shortcutLabel
+            // 
+            this.shortcutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.shortcutLabel.AutoSize = true;
+            this.shortcutLabel.Location = new System.Drawing.Point(15, 585);
+            this.shortcutLabel.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.shortcutLabel.Name = "shortcutLabel";
+            this.shortcutLabel.Size = new System.Drawing.Size(237, 39);
+            this.shortcutLabel.TabIndex = 13;
+            this.shortcutLabel.Text = "Shortcuts for the main program: \r\nAlt + F: Add/remove selected song from favorite" +
+    "s\r\nCtrl + F: Move focus to the search text box.";
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(493, 591);
+            this.ClientSize = new System.Drawing.Size(493, 633);
+            this.Controls.Add(this.shortcutLabel);
             this.Controls.Add(this.musicBooksListGroupBox);
             this.Controls.Add(this.appDataPathButton);
             this.Controls.Add(this.searchOnKeyPressCheckBox);
@@ -242,5 +256,6 @@
         private System.Windows.Forms.CheckBox searchOnKeyPressCheckBox;
         private System.Windows.Forms.Button appDataPathButton;
         private System.Windows.Forms.GroupBox musicBooksListGroupBox;
+        private System.Windows.Forms.Label shortcutLabel;
     }
 }
