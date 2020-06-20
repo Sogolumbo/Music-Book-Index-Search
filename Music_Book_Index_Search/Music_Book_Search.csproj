@@ -150,7 +150,7 @@
     <None Include="Resources\C7 Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Options.ico" />
+    <Content Include="Resources\Options.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
