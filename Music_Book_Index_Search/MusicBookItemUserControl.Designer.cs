@@ -85,6 +85,7 @@
             this.Name = "MusicBookItemUserControl";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.Size = new System.Drawing.Size(407, 54);
+            this.Resize += new System.EventHandler(this.MusicBookItemUserControl_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 

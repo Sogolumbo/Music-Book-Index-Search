@@ -30,6 +30,11 @@ namespace Music_Book_Index_Search
             SetTitleFont();
         }
 
+        private void SetRemoveButtonLocation()
+        {
+            removeButton.Location = new Point(Width - removeButton.Width - 6, (Height - removeButton.Height)/2);
+        }
+
         public event EventHandler<RemoveItemEventArgs> RemoveItem;
 
         private Tuple<string, string> _filepair;
@@ -49,6 +54,11 @@ namespace Music_Book_Index_Search
         private void removeButton_Click(object sender, EventArgs e)
         {
             RemoveItem?.Invoke(this, new RemoveItemEventArgs(_filepair));
+        }
+
+        private void MusicBookItemUserControl_Resize(object sender, EventArgs e)
+        {
+            SetRemoveButtonLocation();
         }
     }
 
