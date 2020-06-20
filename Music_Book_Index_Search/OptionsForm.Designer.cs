@@ -212,8 +212,8 @@
             this.shortcutLabel.Name = "shortcutLabel";
             this.shortcutLabel.Size = new System.Drawing.Size(237, 39);
             this.shortcutLabel.TabIndex = 13;
-            this.shortcutLabel.Text = "Shortcuts for the main program: \r\nAlt + F: Add/remove selected song from favorite" +
-    "s\r\nCtrl + F: Move focus to the search text box.";
+            this.shortcutLabel.Text = "Shortcuts in the main program: \r\nAlt + F: Add/remove selected song from favorites" +
+    "\r\nCtrl + F: Move focus to the search text box.";
             // 
             // OptionsForm
             // 
