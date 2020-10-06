@@ -14,7 +14,7 @@ namespace Music_Book_Index_Search
     {
         static TabletPcSupport()
         {
-            _isTabletPC = (GetSystemMetrics(SM_TABLETPC) != 0);
+            _isTabletPC = false; //(GetSystemMetrics(SM_TABLETPC) != 0);
         }
 
         public static bool SupportsTabletMode
@@ -30,17 +30,17 @@ namespace Music_Book_Index_Search
             }
         }
 
-        private static readonly int SM_CONVERTIBLESLATEMODE = 0x2003;
-        private static readonly int SM_TABLETPC = 0x56;
+        //private static readonly int SM_CONVERTIBLESLATEMODE = 0x2003;
+        //private static readonly int SM_TABLETPC = 0x56;
 
         private static bool _isTabletPC = false;
         
-        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto, EntryPoint = "GetSystemMetrics")]
-        private static extern int GetSystemMetrics(int nIndex);
+        //[DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto, EntryPoint = "GetSystemMetrics")]
+        //private static extern int GetSystemMetrics(int nIndex);
 
         private static bool QueryTabletMode()
         {
-            int state = GetSystemMetrics(SM_CONVERTIBLESLATEMODE);
+            int state = 0;//GetSystemMetrics(SM_CONVERTIBLESLATEMODE);
             return (state == 0);
         }
     }
