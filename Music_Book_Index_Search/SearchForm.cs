@@ -224,11 +224,6 @@ namespace Music_Book_Index_Search
             _pdfOpener.Open(selectedItem.PdfFilePath, selectedItem.PageStart);
         }
 
-        private void SearchForm_Load(object sender, EventArgs e)
-        {
-            //var asForm = System.Windows.Automation.AutomationElement.FromHandle(Handle);
-        }
-
         private void searchTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
