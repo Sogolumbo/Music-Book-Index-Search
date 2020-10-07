@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -14,34 +15,44 @@ namespace Music_Book_Index_Search
     {
         static TabletPcSupport()
         {
-            _isTabletPC = false; //(GetSystemMetrics(SM_TABLETPC) != 0);
+            inspectTabletSupport();
         }
 
-        public static bool SupportsTabletMode
-        {
-            get { return _isTabletPC; }
-        }
+        public static bool SupportsTabletMode { get; private set; }
 
         public static bool IsTabletMode
         {
             get
             {
-                return QueryTabletMode() && SupportsTabletMode;
+                if (SupportsTabletMode)
+                {
+                    inspectTabletMode();
+                }
+                return SupportsTabletMode && _isInTabletMode;
             }
         }
-
-        //private static readonly int SM_CONVERTIBLESLATEMODE = 0x2003;
-        //private static readonly int SM_TABLETPC = 0x56;
-
-        private static bool _isTabletPC = false;
         
-        //[DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto, EntryPoint = "GetSystemMetrics")]
-        //private static extern int GetSystemMetrics(int nIndex);
+        private static bool _isInTabletMode = false;
 
-        private static bool QueryTabletMode()
+        [Conditional("DEBUG"), Conditional("RELEASE")]
+        private static void inspectTabletSupport()
         {
-            int state = 0;//GetSystemMetrics(SM_CONVERTIBLESLATEMODE);
-            return (state == 0);
+            SupportsTabletMode = (GetSystemMetrics(SM_TABLETPC) != 0);
         }
+
+        [Conditional("DEBUG"), Conditional("RELEASE")]
+        private static void inspectTabletMode()
+        {
+            int state = GetSystemMetrics(SM_CONVERTIBLESLATEMODE);
+            _isInTabletMode = (state == 0);
+        }
+
+        private static readonly int SM_CONVERTIBLESLATEMODE = 0x2003;
+        private static readonly int SM_TABLETPC = 0x56;
+
+#if (!Linux)
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto, EntryPoint = "GetSystemMetrics")]
+        private static extern int GetSystemMetrics(int nIndex);
+#endif
     }
 }
