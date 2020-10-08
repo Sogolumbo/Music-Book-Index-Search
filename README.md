@@ -1,5 +1,5 @@
 # Music Book Index Search
-[![Build status](https://ci.appveyor.com/api/projects/status/29f755hd7v02tx3c/branch/master?svg=true)](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/29f755hd7v02tx3c/branch/developement?svg=true)](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/developement)
 ### A tool to quickly find songs in music book pdfs.
 Imagine you 're at a jam session: Someone proposes a song (e.g. "Someone For My Lady"). Normally you would have to go through the table of contents of the first real book but wouldn't find it until you opened the second real book. Then your next challenge would be finding the right page as the pdf page numbers don't match the table of contents.
 
