@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace Music_Book_Index_Search
 {
@@ -106,7 +102,7 @@ namespace Music_Book_Index_Search
         private List<Tuple<string, int, int?>> ProcessCsv(string filepath, char delimiter = ',', char quoteCharacter = '\"', char quoteEscapeCharacter = '\"')
         {
             List<Tuple<string, int, int?>> result = new List<Tuple<string, int, int?>>();
-            using (var parser = new NotVisualBasic.FileIO.CsvTextFieldParser(filepath))
+            using (NotVisualBasic.FileIO.CsvTextFieldParser parser = new NotVisualBasic.FileIO.CsvTextFieldParser(filepath))
             {
                 parser.SetDelimiter(delimiter);
                 parser.SetQuoteCharacter(quoteCharacter);
