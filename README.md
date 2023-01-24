@@ -41,7 +41,19 @@ Tablet view (bigger fonts and spacings):
 ![music book search screenshot](https://user-images.githubusercontent.com/33571916/43722327-4e58976c-9995-11e8-91b0-d978ab9a366d.PNG)
 
 ## Compiling the source code
-Install Visual Studio 2017 or similar, open the solution file (`Music-Book-Search.sln`), select your configuration (DEBUG/RELEASE for Windows, else Linux) und click on 'Build' or 'Start'.
+
+### Windows
+
+1. Install Visual Studio 2017 or similar
+2. Open the solution file (`Music-Book-Search.sln`)
+3. Select the configuration `DEBUG` or `RELEASE`
+4. Click on 'Build' or 'Start'
+
+### Linux
+1. Install [Mono](https://www.mono-project.com/)
+2. *See above*
+3. Select the configuration `Linux`
+4. *See above*
 
 ## Contribution
 The project is a standard visual studio solution. Feel free to fork, improve, create pull requests and share this project.
