@@ -1,5 +1,8 @@
 # Music Book Index Search
-[![Build status](https://ci.appveyor.com/api/projects/status/29f755hd7v02tx3c/branch/master?svg=true)](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/master)
+|Master|Developement|
+|:--:|:--:|
+|[![Build status](https://ci.appveyor.com/api/projects/status/29f755hd7v02tx3c/branch/master?svg=true)](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/master)|[![Build status](https://ci.appveyor.com/api/projects/status/29f755hd7v02tx3c/branch/developement?svg=true)](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/developement)|
+
 ### A tool to quickly find songs in music book pdfs.
 Imagine you 're at a jam session: Someone proposes a song (e.g. "Someone For My Lady"). Normally you would have to go through the table of contents of the first real book but wouldn't find it until you opened the second real book. Then your next challenge would be finding the right page as the pdf page numbers don't match the table of contents.
 
@@ -7,6 +10,7 @@ With this simple tool you just start typing the name of your song and immediatel
 
 ## Platform specifications
 The program runs on Windows 32bit and 64bit systems.
+It can also be built for Linux using Mono.
 ### Requirements
 * [.NET Framework Runtime 4.6.1 or newer](https://www.microsoft.com/net/download/windows).
 * [SumatraPDF](https://www.sumatrapdfreader.org)
@@ -18,7 +22,7 @@ The program runs on Windows 32bit and 64bit systems.
 2. Download Music-Book-Index-Search [from the release page](https://github.com/Sogolumbo/Music-Book-Index-Search/releases) (or from [Appveyor](https://ci.appveyor.com/project/Sogolumbo/music-book-index-search/branch/master/artifacts))
 3. If necessary unzip the zip file for Music-Book-Index-Search and place those files in one folder.
 4. Get the .csv files with the indices for your music books (download from [book-indices](https://github.com/aspiers/book-indices) or create your own).
-5. Download [SumatraPDF](https://www.sumatrapdfreader.org).
+5. Download [SumatraPDF](https://www.sumatrapdfreader.org). (If you use linux you can use ocular or try other pdf viewers. To use them you need to adjust the value of `SumatraPdfFilePath` in `Music-Book-Index-Search.exe.config`).
 6. Open Music-Book-Index-Search.exe and go to Options.
 7. Select your music book pdf file and the corresponding index csv file and add them.
 

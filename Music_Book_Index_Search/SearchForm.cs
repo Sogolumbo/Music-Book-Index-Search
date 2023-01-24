@@ -27,6 +27,8 @@ namespace Music_Book_Index_Search
                 _listBoxItemMargin = 8;
             }
 
+            _musicBookSearch.MusicBookNotFound += MusicBookNotFound_Handler;
+
             Properties.Settings.Default.Log = "";
             Properties.Settings.Default.Save();
 
@@ -38,6 +40,30 @@ namespace Music_Book_Index_Search
             ShowSearchResults();
         }
 
+        private void MusicBookNotFound_Handler(object sender, List<Tuple<Tuple<string, string>, System.IO.IOException>> missingBooks)
+        {
+            string caption = "Files not found";
+            StringBuilder text = new StringBuilder();
+            text.Append(string.Format("Error: {0} music book files not found:\n", missingBooks.Count));
+            foreach(Tuple<Tuple<string, string>, System.IO.IOException> missingBook in missingBooks)
+            {
+                text.Append(string.Format("\n'{0}' - '{1}'\n", missingBook.Item1.Item1, missingBook.Item1.Item2));
+            }
+            text.Append("\nOpen the 'Options' window to change the music book list.\nDo you want to see the detailed Error Message?");
+            DialogResult result = MessageBox.Show(this, text.ToString(), caption, MessageBoxButtons.YesNo);
+
+            if(result == DialogResult.Yes)
+            {
+                text.Clear();
+
+                foreach (Tuple<Tuple<string, string>, System.IO.IOException> missingBook in missingBooks)
+                {
+                    text.Append(string.Format("\n'{0}' - '{1}':\n{2}\n", missingBook.Item1.Item1, missingBook.Item1.Item2, missingBook.Item2.ToString()));
+                }
+                text.Append("\nOpen the 'Options' window to change the music book list.");
+                MessageBox.Show(this, text.ToString(), caption);
+            }
+        }
 
         OptionsForm _optionsForm;
         MusicBookSearch _musicBookSearch = new MusicBookSearch();
@@ -222,11 +248,6 @@ namespace Music_Book_Index_Search
         {
             var selectedItem = (SongItem)resultsListBox.SelectedItem;
             _pdfOpener.Open(selectedItem.PdfFilePath, selectedItem.PageStart);
-        }
-
-        private void SearchForm_Load(object sender, EventArgs e)
-        {
-            var asForm = System.Windows.Automation.AutomationElement.FromHandle(Handle);
         }
 
         private void searchTextBox_KeyPress(object sender, KeyPressEventArgs e)
