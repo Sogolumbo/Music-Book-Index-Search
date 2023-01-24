@@ -8,6 +8,7 @@ namespace Music_Book_Index_Search
     public class MusicBookSearch
     {
         public event EventHandler MusicBooksChanged;
+        public event EventHandler<List<Tuple<Tuple<string, string>, System.IO.IOException>>> MusicBookNotFound; // <csv, pdf filepath>, ...
 
 
         public List<Tuple<string, string>> MusicBooks
@@ -88,13 +89,31 @@ namespace Music_Book_Index_Search
         void OnMusicBooksChanged()
         {
             _index.Clear();
+            List<Tuple<Tuple<string, string>, System.IO.IOException>> missingBooks = new List<Tuple<Tuple<string, string>, System.IO.IOException>>();
             foreach (Tuple<string, string> filepair in _musicBooks)
             {
-                var csvData = ProcessCsv(filepair.Item1);
-                _index.AddRange(
-                   csvData.Select(tuple => new SongItem(tuple.Item1, Path.GetFileNameWithoutExtension(filepair.Item1), filepair.Item2, tuple.Item2, tuple.Item3)));
+                try
+                {
+                    var csvData = ProcessCsv(filepair.Item1);
+                    _index.AddRange(
+                        csvData.Select(tuple => new SongItem(tuple.Item1, Path.GetFileNameWithoutExtension(filepair.Item1), filepair.Item2, tuple.Item2, tuple.Item3)));
+                }
+                catch (System.IO.IOException exception)
+                {
+                    missingBooks.Add(new Tuple<Tuple<string, string>, System.IO.IOException>(filepair, exception));
+
+                    if (!(MusicBookNotFound?.GetInvocationList().Length > 0)) //If nobody listens to the event just throw the exception
+                    {
+                        throw exception;
+                    }
+                }
             }
             _index.Sort();
+
+            if(missingBooks.Count > 0)
+            {
+                MusicBookNotFound?.Invoke(this, missingBooks);
+            }
 
             MusicBooksChanged?.Invoke(this, EventArgs.Empty);
         }
@@ -102,8 +121,7 @@ namespace Music_Book_Index_Search
         private List<Tuple<string, int, int?>> ProcessCsv(string filepath, char delimiter = ',', char quoteCharacter = '\"', char quoteEscapeCharacter = '\"')
         {
             List<Tuple<string, int, int?>> result = new List<Tuple<string, int, int?>>();
-
-            //TODO: Exception handling if filepath does not exist (Show dialog with folder of config file)
+            
             using (NotVisualBasic.FileIO.CsvTextFieldParser parser = new NotVisualBasic.FileIO.CsvTextFieldParser(filepath))
             {
                 parser.SetDelimiter(delimiter);
