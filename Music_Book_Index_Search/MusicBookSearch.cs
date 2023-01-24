@@ -102,6 +102,8 @@ namespace Music_Book_Index_Search
         private List<Tuple<string, int, int?>> ProcessCsv(string filepath, char delimiter = ',', char quoteCharacter = '\"', char quoteEscapeCharacter = '\"')
         {
             List<Tuple<string, int, int?>> result = new List<Tuple<string, int, int?>>();
+
+            //TODO: Exception handling if filepath does not exist (Show dialog with folder of config file)
             using (NotVisualBasic.FileIO.CsvTextFieldParser parser = new NotVisualBasic.FileIO.CsvTextFieldParser(filepath))
             {
                 parser.SetDelimiter(delimiter);
